@@ -7,12 +7,24 @@ const app = express();
 app.use(express.json());
 const port = 3000;
 
-// console.log(process.env.MONGO)
-mongoose.connect(process.env.MONGO)
-.then(() => {
-    console.log('DB Connected Successfully!');
-    app.listen(port, () => {
-        console.log(`Server running on port: ${port}`);
+//Connection of Database.
+function connectDb() {
+    mongoose.connect(process.env.MONGO)
+    .then(() => {
+        console.log('DB Connected Successfully!');
+        // app.listen(port, () => {
+        //     console.log(`Server running on port: ${port}`);
+        // });
     })
+    .catch((err) => console.log(err));
+};
+
+connectDb();
+
+app.listen(port, () => {
+    console.log(`Server running on port: ${port}`);
 })
-.catch((err) => console.log(err));
+
+app.get('/', (req, res) => {
+    res.send('Hello Node Server')
+});
