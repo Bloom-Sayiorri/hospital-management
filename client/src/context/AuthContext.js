@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import axios from 'axios';
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 const login = async () => {
     await axios.get('/login')
@@ -13,7 +13,7 @@ const login = async () => {
 
 const authData = { login };
 
-export default function AuthProvider({children}) {
+function AuthProvider({children}) {
     return (
         <>
             <AuthContext.Provider value={authData}>
@@ -22,3 +22,5 @@ export default function AuthProvider({children}) {
         </>
     )
 }
+
+export { AuthProvider, AuthContext }
