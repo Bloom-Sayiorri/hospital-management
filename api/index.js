@@ -8,17 +8,19 @@ app.use(express.json());
 const port = 3000;
 
 //Connection of Database.
-function connectDb() {
-    mongoose.connect(process.env.MONGO)
-    .then(() => {
-        console.log('DB Connected Successfully!');
-        // app.listen(port, () => {
-        //     console.log(`Server running on port: ${port}`);
-        // });
-    })
-    .catch((err) => console.log(err));
+async function connectDb() {
+    try {
+        await mongoose.connect(process.env.MONGO)
+        .then(() => {
+            console.log('DB Connected Successfully!');
+            // app.listen(port, () => {
+            //     console.log(`Server running on port: ${port}`);
+            // });
+        })
+    } catch(err) {
+        console.log(err);
+    }
 };
-
 connectDb();
 
 app.listen(port, () => {

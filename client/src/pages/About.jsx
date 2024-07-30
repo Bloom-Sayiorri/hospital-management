@@ -1,4 +1,4 @@
-import hospitalAbout from '../images/hospital-about.jpg';
+import hospitalAbout from '../assets/hospital-about.jpg';
 
 const About = () => {
   return (
