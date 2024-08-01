@@ -13,9 +13,9 @@ async function connectDb() {
         await mongoose.connect(process.env.MONGO)
         .then(() => {
             console.log('DB Connected Successfully!');
-            // app.listen(port, () => {
-            //     console.log(`Server running on port: ${port}`);
-            // });
+            app.listen(port, () => {
+                console.log(`Server running on port: ${port}`);
+            });
         })
     } catch(err) {
         console.log(err);
@@ -23,9 +23,9 @@ async function connectDb() {
 };
 connectDb();
 
-app.listen(port, () => {
-    console.log(`Server running on port: ${port}`);
-})
+// app.listen(port, () => {
+//     console.log(`Server running on port: ${port}`);
+// })
 
 app.get('/', (req, res) => {
     res.send('Hello Node Server')

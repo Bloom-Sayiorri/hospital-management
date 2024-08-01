@@ -9,9 +9,13 @@ const login = async () => {
     // fetch('')
     // .then(() => {})
     // .then(() => {})
-}
+};
 
-const authData = { login };
+const logout = async () => {};
+
+const signup = async () => {};
+
+const authData = { login, logout, signup };
 
 function AuthProvider({children}) {
     return (
