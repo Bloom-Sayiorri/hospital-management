@@ -10,7 +10,7 @@ const port = 3000;
 //Connection of Database.
 async function connectDb() {
     try {
-        await mongoose.connect(process.env.MONGO)
+        await mongoose.connect(process.env.MONGO, { autoIndex: false })
         .then(() => {
             console.log('DB Connected Successfully!');
             app.listen(port, () => {
