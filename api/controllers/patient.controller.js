@@ -4,7 +4,9 @@ const Patient = require('../models/patient.model.js');
 const getAllPatients = async (res, req, next) => {
     try {
         const patient = await Patient.findAll(req.params.patient);
-        return json(patient);
+        if(res.ok) {
+            return json(patient);
+        }
     } catch (error) {
         console.log(error.message);
     }
