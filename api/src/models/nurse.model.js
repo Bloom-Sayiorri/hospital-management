@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const nurseSchema = new mongoose.Schema(
 	{
-		user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-		ward: { type: mongoose.Schema.Types.ObjectId, ref: "Ward" },
-		shift: String,
-		yearsExperience: Number,
+		user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+		ward: { type: mongoose.Schema.Types.ObjectId, ref: "Ward", required: true },
+		shift: { type: String, required: true },
+		yearsExperience: { type: Number, required: true },
 	},
 	{ timestamps: true }
 );

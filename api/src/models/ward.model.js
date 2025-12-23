@@ -4,7 +4,7 @@ const wardSchema = new mongoose.Schema(
 	{
         name: { type: String, required: true },
 		room: { type: Number, required: true },
-		department: { type: String, required: true },
+		department: { type: mongoose.Schema.Types.ObjectId, ref: "Department", required: true },
 		capacity: { type: Number, required: true },
 		currentPatients: { type: Number, default: 0 },
 		supervisor: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
