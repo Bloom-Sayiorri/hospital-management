@@ -4,7 +4,7 @@ const departmentSchema = new mongoose.Schema(
 	{
 		name: { type: String, required: true },
 		description: { type: String, required: true },
-		headOfDepartment: { type: mongoose.Schma.Types.ObjectId, ref: "Doctor", required: true },
+		headOfDepartment: { type: mongoose.Schema.Types.ObjectId, ref: "Doctor", required: true },
 	},
 	{ timestamps: true }
 );

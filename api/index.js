@@ -1,32 +1,16 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config();
+const app = require("./app");
+const seed = require("./src/seed/script");
+const connectDb = require("./src/utils/db");
 
-const app = express();
-app.use(express.json());
-const port = 3000;
+const PORT = process.env.PORT;
+const DBURL = process.env.DB_URL;
 
-//Connection of Database.
-async function connectDb() {
-    try {
-        await mongoose.connect(process.env.MONGO, { autoIndex: false })
-        .then(() => {
-            console.log('DB Connected Successfully!');
-            app.listen(port, () => {
-                console.log(`Server running on port: ${port}`);
-            });
-        })
-    } catch(err) {
-        console.log(err);
-    }
-};
-connectDb();
+async function startServer() {
+	await connectDb(DBURL);
+	// seed();
+	app.listen(PORT, () => {
+		console.log(`Server running on http://localhost:${PORT}`);
+	});
+}
 
-// app.listen(port, () => {
-//     console.log(`Server running on port: ${port}`);
-// })
-
-app.get('/', (req, res) => {
-    res.send('Hello Node Server')
-});
+startServer();

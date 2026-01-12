@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const admissionSchema = new mongoose.Schema(
 	{
 		patient: { type: mongoose.Schema.Types.ObjectId, ref: "Patient", required: true },
-		admittedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+		admittedBy: { type: mongoose.Schema.Types.ObjectId, ref: "Nurse", required: true },
 		doctorInCharge: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
 		diagnosis: { type: String, required: true },
 		ward: { type: mongoose.Schema.Types.ObjectId, ref: "Ward", required: true },

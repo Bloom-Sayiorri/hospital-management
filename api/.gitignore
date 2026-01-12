@@ -1,3 +1,5 @@
 /node_modules
 
 .env
+
+/src/utils/db2.js
