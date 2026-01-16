@@ -4,9 +4,9 @@ const medicationSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
         description: { type: String, required: true },
-        stock: { type: Boolean, enum: ["In-Stock", "Out-of-Stock"], default: "In-Stock", required: true },
-        expiry: { type: Date, default: Date.now, rewuired: true },
+        stock: { type: String, enum: ["in-stock", "out-of-stock"], default: "in-stock", required: true },
         manufacturer: { type: String ,required: true },
+        dateOfManufacture: { type: Date, required: true },
         expiryDate: { type: Date, required: true },
     },
     { timestamps: true }

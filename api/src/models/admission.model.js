@@ -8,9 +8,9 @@ const admissionSchema = new mongoose.Schema(
 		diagnosis: { type: String, required: true },
 		ward: { type: mongoose.Schema.Types.ObjectId, ref: "Ward", required: true },
 		bed: { type: mongoose.Schema.Types.ObjectId, ref: "Bed", required: true },
-		status: { type: String, enum: ["None", "Admitted", "Discharged"], default: "None", required: true },
+		status: { type: String, enum: ["none", "admitted", "discharged"], default: "None", required: true },
 		admittedAt: { type: Date, default: Date.now, required: true },
-		dischargedAt: { type: Date, default: Date.now, required: true },
+		dischargedAt: { type: Date, default: null, required: false },
 	},
 	{ timestamps: true }
 );
